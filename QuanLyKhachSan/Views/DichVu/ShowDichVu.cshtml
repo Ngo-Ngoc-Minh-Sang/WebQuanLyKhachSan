@@ -1,0 +1,44 @@
+﻿@model IEnumerable<QuanLyKhachSan.Models.DICHVU>
+
+@{
+    ViewBag.Title = "ShowDichVu";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+
+<div style=" margin-top: 50px">
+    <h2 style="text-align: center; margin-top: 30px; margin-bottom: 20px">DỊCH VỤ</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Tên dịch vụ
+            </th>
+            <th>
+                Giá dịch vụ
+            </th>
+            <th>
+                Loại dịch vụ
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TENDV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GIADV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LOAIDV)
+                </td>
+                <td>
+                    @Html.ActionLink("Đặt dịch vụ", "DK_DichVu", "DichVu", new { @mdv = item.MADV }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+

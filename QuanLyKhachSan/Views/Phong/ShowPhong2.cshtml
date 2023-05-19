@@ -1,0 +1,65 @@
+﻿@model IEnumerable<QuanLyKhachSan.Models.PHONG>
+
+@{
+    ViewBag.Title = "ShowPhong2";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+
+<style>
+    * {
+        color: black;
+    }
+</style>
+<div style="margin-top: 60px">
+    <h2 style="text-align: center">DANH SÁCH PHÒNG</h2>
+    <form action="/Phong/ShowPhong" method="post" style="float: left; width: 650px">
+        Tìm theo tên phòng: <span>
+            <input class="w-50" type="text" name="txt_search" placeholder="Search" aria-label="Search" style="border-radius: 5px; margin-left: 10px; border-color: blue; width: 150px; border: 2px solid blue" />
+        </span>
+        <button class="btn btn-success mx-5 btn-sm" type="submit">SEARCH</button>
+    </form>
+    <form action="/Phong/ShowPhong2" method="post" style="float: left; margin-left: 100px; width: 650px">
+        Sắp xếp phòng theo: <span>
+            <select name="cbo_sort" style="width: 150px; height: 30px; border-radius: 5px; border: 2px solid blue">
+                <option value="0">None</option>
+                <option value="1">Loại Phòng</option>
+                <option value="2">Tình Trạng</option>
+            </select>
+        </span>
+        <button class="btn btn-success mx-5 btn-sm" type="submit">SORT</button>
+    </form>
+    <table class="table">
+        <tr>
+            <th>
+                TÊN PHÒNG
+            </th>
+            <th>
+                LOẠI PHÒNG
+            </th>
+            <th>
+                TÌNH TRẠNG
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TENPHONG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LOAIPHONG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TINHTRANG)
+                </td>
+                <td>
+                    @Html.ActionLink("Xem chi tiết", "ChiTietPhong", "Phong", new { @mp = item.MAPHONG }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Đặt phòng", "DK_DatPhong", "DatPhong", new { @mp = item.MAPHONG, @tt = item.TINHTRANG }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

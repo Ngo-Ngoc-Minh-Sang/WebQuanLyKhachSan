@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "DK_DatPhong";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+
+<h2 style="text-align: center; margin-top: 30px">ĐẶT PHÒNG</h2>
+<div style="position: relative; height: 400px">
+    <table class="table" style="position:absolute; right: 450px">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            {
+                <tr>
+                    <td style="text-align: right; border-top: none; color: black">Ngày Nhận Phòng: </td>
+                    <td style="border-top: none"><input type="date" class="form-control" name="NgayNP" style="width: 500px" />@ViewData["Loi1"]</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right; border-top: none; color: black">Ngày Trả Phòng: </td>
+                    <<td style="border-top: none"><input type="date" class="form-control" name="NgayTP" style="width: 500px" />@ViewData["Loi2"]</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right; border-top: none; color: black">Tiền Cọc: </td>
+                    <td style="border-top: none; width:300px">@Html.TextBox("TienCoc", "", new { @class = "form-control" }) @ViewData["Loi3"]</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right; border-top: none; color: black">Số Người Ở: </td>
+                    <td style="border-top: none">@Html.TextBox("SoNguoiO", "", new { @class = "form-control" }) @ViewData["Loi4"]</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; border-top: none;" colspan="2"><input type="submit" value="Đặt Phòng Ngay" class="btn btn-primary form-control" style="width: 150px; height: 50px; color: white; margin-left: 930px" /></td>
+                </tr>
+            }
+            if(Session["DatPhong"] != null)
+            {
+                <script>
+                    window.alert("Đặt phòng thành công!")
+                </script>
+            }
+        }
+    </table>
+</div>
+

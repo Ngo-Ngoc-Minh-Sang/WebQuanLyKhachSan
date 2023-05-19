@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+
+<div style="margin: 20px 0 0 5px;">
+    <h2 style="text-align: center;">QUẢN TRỊ VIÊN</h2>
+    <div style="margin: 0 39%;">
+        <ul>
+            <a href="@Url.Action("QLKH", "Admin")">
+            <li class="menu_admin"><p>Quản lý khách hàng</p></li></a>
+            <a href="@Url.Action("DSNV", "Admin")">
+            <li class="menu_admin"><p>Quản lý nhân viên</p></li></a>
+            <a href="@Url.Action("QLHD", "HoaDon")">
+            <li class="menu_admin"><p>Quản lý hóa đơn</p></li></a>
+            <a href="#">
+            <li class="menu_admin"><p>Quản trị phòng</p></li></a>
+        </ul>
+    </div>
+</div>
+
+
+

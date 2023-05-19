@@ -1,0 +1,65 @@
+﻿@model IEnumerable<QuanLyKhachSan.Models.KHACHHANG>
+
+@{
+    ViewBag.Title = "DSKH";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+
+<div style="margin-top: 40px">
+    <h2 style="text-align: center">DANH SÁCH KHÁCH HÀNG</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Họ tên
+            </th>
+            <th>
+                Ngày sinh
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Giới tính
+            </th>
+            <th>
+                Chứng minh
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HOTEN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAYSINH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMAIL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GIOITINH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CCCD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DIACHI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDT)
+                </td>
+            </tr>
+        }
+    </table>
+    <a href="@Url.Action("QLKH", "Admin")" class="btn btn-primary" style="margin-left: 700px; border-radius: 10px; margin-top: 30px">Thoát</a>
+</div>
+

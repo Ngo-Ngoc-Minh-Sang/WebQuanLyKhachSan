@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "DangKi";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+
+<h2 style="text-align: center; margin-top: 30px">ĐĂNG NHẬP</h2>
+<table class="table">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        {
+            <tr>
+                <td style="text-align: right; border-top: none; color: black">Tên Đăng Nhập: </td>
+                <td style="border-top: none">@Html.TextBox("TenDN", "", new { @class = "form-control" }) @ViewData["Loi1"]</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; border-top: none; color: black">Mật Khẩu: </td>
+                <td style="border-top: none;">@Html.Password("MatKhau", "", new { @class = "form-control" }) @ViewData["Loi2"]</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; border-top: none;" colspan="2"><input type="submit" value="Đăng Nhập" class="btn btn-primary form-control" style="width: 150px; height: 50px; color: white" /></td>
+            </tr>
+            <tr>
+                <td style="font-size: 20px; color: red; text-align: center; border-top: none" colspan="2">@ViewBag.TB</td>
+            </tr>
+        }
+    }
+</table>

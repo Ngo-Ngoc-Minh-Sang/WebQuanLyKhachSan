@@ -1,0 +1,38 @@
+﻿@model IEnumerable<QuanLyKhachSan.Models.CTHD>
+
+@{
+    ViewBag.Title = "XemCTHD";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+<div style="margin-top: 50px">
+    <h2 style="text-align: center; margin-top: 50px; margin-bottom: 40px">CHI TIẾT HÓA ĐƠN</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Phòng
+            </th>
+            <th>
+                Thành tiền
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PHONG.TENPHONG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GIATIEN)
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        }
+
+    </table>
+    <a href="@Url.Action("ShowHoaDon", "HoaDon")" class="btn btn-primary" style="margin-left: 700px; border-radius: 10px; margin-top: 30px">Thoát</a>
+</div>
+

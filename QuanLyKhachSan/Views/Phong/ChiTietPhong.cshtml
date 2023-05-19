@@ -1,0 +1,62 @@
+﻿@model QuanLyKhachSan.Models.PHONG
+@{
+    ViewBag.Title = "ChiTietPhong";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+<style>
+    .canle{
+        padding-left: 120px
+    }
+</style>
+<div style="margin-top: 60px">
+    <h2 style="text-align: center">CHI TIẾT PHÒNG</h2>
+    <div>
+        <table class="border-dark mx-3 mb-3 mt-3 ">
+            <tr class="text-left">
+                <td rowspan="7" width="45%">
+                    <img class="card-header" src="@Url.Content("../Assets/images/" + Model.ANHPHONG)" width="100%" height="100%" alt="Image">
+                </td>
+                <td width="20%" class="canle">Tên Phòng:</td>
+                <td width="35%" style="font-weight:bold; color:blue">@Model.TENPHONG</td>
+            </tr>
+            <tr class="text-left">
+                <td class="canle">Loại Phòng: </td>
+                <td style="color:blue">@Model.LOAIPHONG</td>
+            </tr>
+            <tr class="text-left">
+                <td class="canle">Tình Trạng Phòng:</td>
+                <td class="text-justify" style="color:blue">@Model.TINHTRANG</td>
+            </tr>
+            <tr class="text-left">
+                <td class="canle">Số Lượng Người Tối Đa:</td>
+                <td class="text-justify" style="color:blue">@Model.SL_NGUOI_TOIDA</td>
+            </tr>
+            <tr class="text-left">
+                <td class="canle">Giá Phòng:</td>
+                <td class="text-justify" style="color:blue">@Model.GIA</td>
+            </tr>
+            <tr class="text-left">
+                <td class="canle">Mô Tả Phòng:</td>
+                <td class="text-justify" style="color:blue">@Model.MOTAPHONG</td>
+            </tr>
+            @*<tr class="text-left">
+                    <td>Giá bán:</td>
+                    <td style="font-weight:bold;color:red">@string.Format("{0:0,0}", @Model.GiaBan) VNĐ</td>
+                </tr>*@
+            <tr>
+                <td colspan="2">
+                    <a href="@Url.Action("DK_DatPhong", "DatPhong", new {@mp = Model.MAPHONG, @strURL = Request.Url.ToString() })" style="margin-left: 150px">
+                        <input type="submit" value="Đặt phòng" class="btn btn-primary" /> &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+                    </a>
+                    <a href="@Url.Action("ShowPhong2","Phong")">
+                        <input type="submit" value="Trở Về" class="btn btn-primary" />
+                    </a>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br />
+</div>
+

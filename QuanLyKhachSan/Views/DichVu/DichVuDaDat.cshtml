@@ -1,0 +1,39 @@
+﻿@model IEnumerable<QuanLyKhachSan.Models.CHITIET_SDDV>
+
+@{
+    ViewBag.Title = "DichVuDaDat";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+
+<style>
+    .table th {
+        border-top: none;
+    }
+</style>
+
+<div style="margin-top: 50px">
+    <h2 style="text-align: center; margin-top: 50px; margin-bottom: 40px">CÁC DỊCH VỤ ĐÃ ĐẶT</h2>
+    <table class="table">
+        <tr>
+            <th>Tên dịch vụ</th>
+            <th>Loại dịch vụ</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DICHVU.TENDV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DICHVU.LOAIDV)
+                </td>
+                <td>
+                    @Html.ActionLink("Hủy dịch vụ", "HuyDichVu", new { @mdv = item.MADV, @msd = item.MA_SD }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

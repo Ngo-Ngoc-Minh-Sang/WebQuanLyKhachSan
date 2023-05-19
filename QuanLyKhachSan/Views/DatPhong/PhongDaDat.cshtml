@@ -1,0 +1,62 @@
+﻿@model IEnumerable<QuanLyKhachSan.Models.CT_DATPHONG>
+
+@{
+    ViewBag.Title = "PhongDaDat";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+
+<div style="margin-top: 50px">
+    <h2 style="text-align: center; margin-top: 30px">CÁC PHÒNG ĐÃ ĐẶT</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Tên phòng
+            </th>
+            <th>
+                Ngày đặt
+            </th>
+            <th>
+                Ngày nhận phòng
+            </th>
+            <th>
+                Ngày trả phòng
+            </th>
+            <th>
+                Tiền cọc
+            </th>
+            <th>
+                Số người ở
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PHONG.TENPHONG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DATPHONG.NGAYDAT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAYNP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAYTP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TIENCOC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SONGUOIO)
+                </td>
+                <td>
+                    @Html.ActionLink("Hủy đặt phòng", "XoaPhong", new { @mdp = item.MADP, @mp = item.MAPHONG }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "DangKi";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+
+<h2 style="text-align: center; margin-top: 30px">ĐĂNG KÍ TÀI KHOẢN</h2>
+<table class="table">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        {
+            <tr style="border-top: none">
+                <td style="text-align: right; border-top: none; color: black">Họ Tên KH: </td>
+                <td style="border-top: none">@Html.TextBox("HotenKH", "", new { @class = "form-control" }) @ViewData["Loi1"]</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; border-top: none; color: black">Tên Đăng Nhập: </td>
+                <td style="border-top: none">@Html.TextBox("TenDN", "", new { @class = "form-control" }) @ViewData["Loi2"]</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; border-top: none; color: black">Mật Khẩu: </td>
+                <td style="border-top: none">@Html.Password("Matkhau", "", new { @class = "form-control" }) @ViewData["Loi3"]</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; border-top: none; color: black">Nhập lại Mật Khẩu: </td>
+                <td style="border-top: none">@Html.Password("ReMatkhau", "", new { @class = "form-control" }) @ViewData["Loi4"]</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; border-top: none; color: black">Điện thoại: </td>
+                <td style="border-top: none">@Html.TextBox("Dienthoai", "", new { @class = "form-control" }) @ViewData["Loi5"]</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; border-top: none; color: black">Ngày sinh: </td>
+                <td style="border-top: none"><input type="date" class="form-control" name="Ngaysinh" style="width: 500px" />@ViewData["Loi6"]</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; border-top: none; color: black">Email: </td>
+                <td style="border-top: none">@Html.TextBox("Email", "", new { @class = "form-control" }) @ViewData["Loi7"]</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; border-top: none; color: black">Địa chỉ: </td>
+                <td style="border-top: none">@Html.TextBox("DiaChi", "", new { @class = "form-control" }) @ViewData["Loi8"]</td>
+            </tr>
+            <tr>
+                <td style="text-align: right; border-top: none; color: black">Giới tính: </td>
+                @*<td style="border-top: none">@Html.TextBox("GioiTinh", "", new { @class = "form-control" }) @ViewData["Loi9"]</td>*@
+            <td style="border-top: none">
+                <select name="GioiTinh" class="form-control">
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
+                @ViewData["Loi9"]
+            </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; border-top: none; color: black">CCCD: </td>
+                <td style="border-top: none">@Html.TextBox("CCCD", "", new { @class = "form-control" }) @ViewData["Loi10"]</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; border-top: none;" colspan="2"><input type="submit" value="Đăng Kí" class="btn btn-primary form-control" style="width: 150px; height: 50px; color: white" /></td>
+            </tr>
+        }
+    }
+</table>

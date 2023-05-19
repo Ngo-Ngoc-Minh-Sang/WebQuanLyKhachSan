@@ -1,0 +1,51 @@
+﻿@model IEnumerable<QuanLyKhachSan.Models.HOADON>
+
+@{
+    ViewBag.Title = "ShowHoaDon";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+
+<div style="margin-top: 50px">
+    <h2 style="text-align: center; margin-top: 30px">DANH SÁCH HÓA ĐƠN</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Mã nhân viên
+            </th>
+            <th>
+                Mã đặt phòng
+            </th>
+            <th>
+                Ngày lập hóa đơn
+            </th>
+            <th>
+                Tổng tiền
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MANV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MADP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAYLAP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TONGTIEN)
+                </td>
+                <td>
+                    @Html.ActionLink("Xem CTHD", "XemCTHD", new { @mhd = item.MAHD }, new { @class = "btn btn-primary" })
+                    @*@Html.ActionLink("Delete", "Delete", new { id=item.MAHD })*@
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

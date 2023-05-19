@@ -1,0 +1,34 @@
+.menu_admin{
+    border: 1px solid black;
+    width: 350px;
+}
+.menu_admin p{
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: black
+}
+.menu_admin:hover{
+    background-color: aqua;
+
+}
+.menu_admin p:hover{
+    transform: scale(1.2,1.2);
+    color: red;
+}
+#avatar:hover{
+    animation-name: example;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes example {
+    from {background-color: #ffa37b;}
+    to {background-color: yellow;}
+}
+#avatar a{
+    color: white;
+}
+#avatar a:hover{
+    color: red;
+}

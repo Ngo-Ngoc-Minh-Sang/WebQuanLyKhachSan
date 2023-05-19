@@ -1,0 +1,53 @@
+﻿@model IEnumerable<QuanLyKhachSan.Models.NHANVIEN>
+
+@{
+    ViewBag.Title = "DSNV";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+<div style="margin-top: 50px">
+    <h2 style="text-align: center; margin-top: 30px">DANH SÁCH NHÂN VIÊN</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Tên nhân viên
+            </th>
+            <th>
+                Chức vụ
+            </th>
+            <th>
+                Giới tính
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Ngày sinh
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TENNV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CHUCVU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GIOITINH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DIACHI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAYSINH)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <a href="@Url.Action("Admin", "Home")" class="btn btn-primary" style="margin-left: 700px; border-radius: 10px; margin-top: 30px">Thoát</a>
+</div>
+
